@@ -12,7 +12,7 @@ class Encoder(torch.nn.Module):
         self.chara_num = chara_num
         self.embedding = torch.nn.Embedding(self.vocab_size, self.embed_dim, padding_idx=0, max_norm=5, sparse=True)
         self.embedding.weight.requires_grad = False
-        self.embedding_dropout = torch.nn.Dropout(0.2)
+        self.embedding_dropout = torch.nn.Dropout(0.25)
         self.encoder = encoder
         self.fc = torch.nn.Linear(self.hidden_dim, self.embed_dim)
         self.loss = torch.nn.CrossEntropyLoss()
